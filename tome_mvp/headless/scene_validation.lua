@@ -1,0 +1,13 @@
+dofile('/probe.lua')
+local state=require('scene').create(7)
+assert(#state.allies==3 and #state.enemies==5)
+assert(state.map.w==64 and state.map.h==64)
+assert(state.map.seens(state.enemy.x,state.enemy.y))
+local visibility=require('visibility')
+visibility.refresh(state)
+assert(state.visible[state.enemy.uid])
+state.enemy.invisible=100
+state.player:resetCanSeeCache()
+visibility.refresh(state)
+assert(not state.visible[state.enemy.uid])
+print('SCENE_64_THREE_FIVE_PASS')

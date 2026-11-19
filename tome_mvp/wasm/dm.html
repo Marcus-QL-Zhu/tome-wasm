@@ -1,0 +1,8 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>战斗已交接</title>
+<style>body{background:#101719;color:#d6e6df;font:17px/1.7 system-ui;max-width:850px;margin:60px auto;padding:20px}button,a{color:#e1c27d}a{padding:12px;border:1px solid #678d7e;display:inline-block}pre{white-space:pre-wrap}small{color:#a2b5ab}</style>
+<h1>战斗已暂挂</h1><p id="state">正在读取服务器回执…</p><div id="party"></div><p><a id="resume" hidden>继续原局战斗</a></p><small>战场时间已冻结。DM可读取本次交接，完成谈判或其他裁定。返回后保留已发生的伤害、消耗和状态。</small>
+<script>
+const bid=new URL(location.href).searchParams.get('battle');
+async function refresh(){try{const r=await fetch('/api/status/'+encodeURIComponent(bid),{cache:'no-store'});if(!r.ok)throw Error('服务器尚未提供交接状态');const s=await r.json();document.getElementById('state').textContent=s.state==='suspended'?'完整战局已保存并验证，等待DM处理。':'DM已完成处理，可以继续同一场战局。';document.getElementById('party').textContent=(s.view.party || []).map(a=>`${a.name}：${a.hp.toFixed(1)}/${a.max_hp.toFixed(1)}`).join('；');const link=document.getElementById('resume');link.hidden=s.state!=='active';link.href='/?battle='+encodeURIComponent(bid);}catch(e){document.getElementById('state').textContent=e.message;}}
+refresh();setInterval(refresh,3000);
+</script></html>

@@ -1,0 +1,4 @@
+interface:
+  display_name: "ToME Browser Battle"
+  short_description: "Create and open a validated native ToME Wasm battle"
+  default_prompt: "Use $tome-browser-battle to prepare, validate and open this authorized encounter."

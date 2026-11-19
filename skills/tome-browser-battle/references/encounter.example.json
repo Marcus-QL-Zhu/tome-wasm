@@ -1,0 +1,21 @@
+{
+  "format": "tome-encounter-v1",
+  "seed": 23,
+  "party": [
+    {
+      "birth": {"sex":"Male","race":"Human","subrace":"Cornac","class":"Warrior","subclass":"Bulwark"},
+      "name":"测试团长", "level":18,
+      "stats":{"str":50,"dex":24,"con":40,"wil":20},
+      "talents":[{"id":"T_RUSH","rank":3,"mastery":1.3},{"id":"T_SHIELD_PUMMEL","rank":3,"mastery":1.3}],
+      "equipment":[{"name":"steel waraxe","slot":"MAINHAND"},{"name":"steel shield","slot":"OFFHAND"},{"name":"steel mail armour","slot":"BODY"},{"name":"brass lantern","slot":"LITE"}],
+      "portrait":"data/gfx/shockbolt/player/cornac_male.png"
+    },
+    {"template":"159442","name":"测试近卫"},
+    {"template":"425367","name":"测试猎手"}
+  ],
+  "map":{"kind":"rooms","room_count":5},
+  "enemies":[
+    {"source":"orc","prototype":"orc warrior","class":"Bulwark","level":16,"hp_multiplier":2},
+    {"source":"skeleton","prototype":"skeleton warrior","class":"Berserker","level":17,"hp_multiplier":1.5}
+  ]
+}

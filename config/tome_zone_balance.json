@@ -1,0 +1,40 @@
+{
+  "model_id": "tome-party-equivalent-level-20261115-v1",
+  "distance_weights": [
+    1.9215695954062453,
+    0.9561852274123008
+  ],
+  "target_success_range": [
+    0.75,
+    0.9
+  ],
+  "target_success": 0.825,
+  "mapping": {
+    "elasticity": 0.4,
+    "knots": [
+      [
+        0.26747911157029614,
+        12.109087061815515
+      ],
+      [
+        2.505137607473441,
+        18.32765044904292
+      ],
+      [
+        20.57316322148536,
+        59.73902858139832
+      ]
+    ],
+    "enabled": true
+  },
+  "templates": {
+    "forest": "old-forest",
+    "dungeon": "ruins-kor-pul",
+    "cave": "trollmire"
+  },
+  "basis": "One shared curve. Three existing strength anchors consolidated once by geometric mean; no ecology-specific runtime coefficients or new fitting.",
+  "validation": {
+    "scope": "smoke checks only; prior per-ecology win rates do not validate this curve",
+    "success_rate_verified": false
+  }
+}

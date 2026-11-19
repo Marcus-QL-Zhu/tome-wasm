@@ -1,0 +1,106 @@
+{
+  "format": "tome-birth-catalog-v1",
+  "source": "ToME 1.7.6 installed base content",
+  "talent_definitions": 1583,
+  "all_talents_verified": false,
+  "birth_descriptors": {
+    "base": [
+      "base"
+    ],
+    "class": [
+      "Adventurer",
+      "Afflicted",
+      "Celestial",
+      "Chronomancer",
+      "Defiler",
+      "Mage",
+      "None",
+      "Psionic",
+      "Rogue",
+      "Tutorial Adventurer",
+      "Warrior",
+      "Wilder"
+    ],
+    "difficulty": [
+      "Easy",
+      "Insane",
+      "Madness",
+      "Nightmare",
+      "Normal",
+      "Tutorial"
+    ],
+    "permadeath": [
+      "Adventure",
+      "Exploration",
+      "Roguelike"
+    ],
+    "race": [
+      "Construct",
+      "Dwarf",
+      "Elf",
+      "Giant",
+      "Halfling",
+      "Human",
+      "Tutorial Human",
+      "Undead",
+      "Yeek"
+    ],
+    "sex": [
+      "Female",
+      "Male"
+    ],
+    "subclass": [
+      "Adventurer",
+      "Alchemist",
+      "Anorithil",
+      "Arcane Blade",
+      "Archer",
+      "Archmage",
+      "Berserker",
+      "Brawler",
+      "Bulwark",
+      "Corruptor",
+      "Cursed",
+      "Doomed",
+      "Marauder",
+      "Mindslayer",
+      "Necromancer",
+      "None",
+      "Oozemancer",
+      "Paradox Mage",
+      "Reaver",
+      "Rogue",
+      "Shadowblade",
+      "Skirmisher",
+      "Solipsist",
+      "Stone Warden",
+      "Summoner",
+      "Sun Paladin",
+      "Temporal Warden",
+      "Tutorial Adventurer",
+      "Wanderer",
+      "Wyrmic"
+    ],
+    "subrace": [
+      "Cornac",
+      "Dwarf",
+      "Ghoul",
+      "Halfling",
+      "Higher",
+      "Lich",
+      "Ogre",
+      "Runic Golem",
+      "Shalore",
+      "Skeleton",
+      "Thalore",
+      "Tutorial Basic",
+      "Tutorial Stats",
+      "Yeek"
+    ],
+    "world": [
+      "Arena",
+      "Infinite",
+      "Maj'Eyal"
+    ]
+  }
+}

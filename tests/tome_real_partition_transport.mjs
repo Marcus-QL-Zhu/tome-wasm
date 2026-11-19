@@ -1,0 +1,12 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+import {selectPartitions,verifyAuthorizedPartitions} from '../tome_mvp/wasm/partition_transport.mjs';
+const {manifest:m,blobs}=JSON.parse(fs.readFileSync('artifacts/native-level-partition-20261115/real-wire-sample.json','utf8'));
+const scope={build:m.build,world_id:m.world_id,campaign_id:m.campaign_id};
+const ids=selectPartitions(m,scope,{kind:'loadout'});
+const hashes=new Map(blobs.map(b=>[b.digest,b.payload_base64]));
+const entries={hot:m.hot_root,...Object.fromEntries(m.partitions.map(p=>[p.partition_id,p]))};
+const selected=Object.fromEntries(ids.map(id=>[id,hashes.get(entries[id].blob_digest)]));
+const verified=await verifyAuthorizedPartitions(m,scope,ids,selected);
+assert.equal(verified.length,ids.length);
+console.log(JSON.stringify({requested:'loadout',selected:ids,verified:true}));

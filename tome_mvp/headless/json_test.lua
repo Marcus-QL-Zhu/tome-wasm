@@ -1,0 +1,18 @@
+local json = require('json_validate')
+local v, e = json.decode('{"id":7,"method":"observe","params":{"text":"\\u4e2d\\ud83d\\ude00","v":[true,false,null,1.5e2]}}')
+assert(v and not e and v.id == 7 and v.params.text == '中😀' and v.params.v[4] == 150)
+assert(json.isobject(v) and json.isobject(v.params) and json.isarray(v.params.v))
+for _, s in ipairs({'{"a":1,"a":2}', '[1,]', '01', '1.e2', '"\\ud800"', '{"a":true} trailing', '"\\q"'}) do
+    assert(json.decode(s) == nil, 'unexpectedly accepted ' .. s)
+end
+assert(json.decode('"' .. string.char(0xc0, 0x80) .. '"') == nil)
+local encoded = json.encode(json.object({text='中\n', values=json.array({1,true,json.null})}))
+local roundtrip = assert(json.decode(encoded))
+assert(roundtrip.text=='中\n' and roundtrip.values[2]==true and roundtrip.values[3]==json.null)
+assert(not pcall(json.encode, {}))
+assert(json.encode('ascii\n"\\')=='"ascii\\n\\"\\\\"')
+assert(not pcall(json.encode,string.char(0xc0,0x80)))
+assert(#json.encode(string.rep('a',1048575))==1048577)
+local large=string.rep('x',22*1024*1024)
+assert(json.decode('"'..large..'"')==large)
+print('JSON_TEST_PASS')

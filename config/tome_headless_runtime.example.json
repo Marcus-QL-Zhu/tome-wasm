@@ -1,0 +1,5 @@
+{
+  "worker_argv": ["PATH_TO_HEADLESS_WORKER"],
+  "timeout_seconds": 20,
+  "startup_timeout_seconds": 90
+}

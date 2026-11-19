@@ -1,0 +1,7 @@
+rng.seed(7)
+local a,b,c=rng.normalFloat(0,1),rng.normalFloat(0,1),rng.range(1,1000)
+rng.seed(9)
+rng.normalFloat(0,1)
+rng.seed(7)
+assert(a==rng.normalFloat(0,1) and b==rng.normalFloat(0,1) and c==rng.range(1,1000))
+print('RNG_RESEED_PASS')
