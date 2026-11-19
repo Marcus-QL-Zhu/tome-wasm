@@ -23,3 +23,14 @@ python scripts/doctor_tome_build.py --pins <pins.json>
 `python scripts/acceptance.py current-unit` runs the bounded current unit set, and is the CI default. `current-integration` includes actual localhost HTTP/RPC and may require network permissions. It also runs separate source identity, native item, zone, handover, XP and save fixtures; those separate fixtures do not form a real native end-to-end chain. The current-unit group also includes one same-state SQLite contract chain through area entry, suspended handover, departure, XP, allocation save and reopening; its native VM, access checks and binding lookup are substitutes. `native-contract` contains protocol and configuration tests with substitutes; it is not a real kernel acceptance. `native-e2e` requires `TOME_HEADLESS_BUILD_DIR` for an isolated real worker and is never run by default; missing input is reported as not prepared. It executes a finite native automation/items sample, not a full game. `history` covers frozen identity and legacy archive readers. `all` explicitly runs the full historical pytest set, including retired behavior and tests requiring external inputs. No group certifies a production release or full game.
 
 Frozen R0 and V2 resources are selected from the manifests in the requested commit, including the three pinned legacy history packages. Verification checks their pinned bytes and executes the frozen installation check. These historical manifests include tracked, non-secret default configuration files; the operator's supplied runtime configuration and credentials remain external. Runtime guide documents, director SOP, companion templates and battle skill references are included. The manifest is an integrity check, not an authenticity signature.
+
+## Plane-capable release
+
+The accepted Dreamscape and Fearscape release uses the existing audited DLC kernel and its local build inputs. Run on the build host with the pinned source tree, SDK and base kernel build command available.
+
+```sh
+python scripts/rebuild_tome_plane_binary.py --base <audited-dlc-kernel> --output <native-build>
+python scripts/assemble_tome_plane_release.py --base <audited-dlc-kernel> --native <native-build> --output <plane-kernel>
+```
+
+The assembly script updates the browser module and recomputes the kernel identity. Reassembly with the deployment inputs reproduced `e5abfbf42e9fc50e` and the six checked browser files byte for byte. Runtime packages, licensed installs, and generated build products stay outside Git.
